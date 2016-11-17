@@ -28,7 +28,7 @@ public class AVLTree<T extends Comparable<T>> extends BSTree<T> {
 		if (theRoot == null)
 			return new AVLNode<T>(info);
 		if (info.compareTo(theRoot.getInfo()) == 0)
-			return (AVLNode<T>) raiz;
+			return theRoot;
 		if (info.compareTo(theRoot.getInfo()) < 0)
 			theRoot.setLeft(add(theRoot.getLeft(), info));
 		else
