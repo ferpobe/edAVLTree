@@ -72,13 +72,13 @@ public class AVLTreeTest {
 	@Test
 	public void test3() {
 		AVLTree<Integer> b = new AVLTree<Integer>();
-		assertTrue(b.add(10));
-		assertFalse(b.add(10));
-		assertTrue(b.remove(10));
-		assertFalse(b.remove(10));
-		assertTrue(b.add(10));
-		assertTrue(b.remove(10));
-		assertFalse(b.add(null));
+		b.add(10);
+		b.add(10);
+		b.remove(10);
+		b.remove(10);
+		b.add(10);
+		b.remove(10);
+		b.add(null);
 		
 		
 		//borrar rotacion simple derecha
@@ -99,6 +99,7 @@ public class AVLTreeTest {
 			AVLTree<Integer> b = new AVLTree<Integer>();
 			b.add(10);
 			b.add(5);
+			b.add(10);
 			b.add(15);
 			b.add(16);
 			System.out.println("------------------------");
@@ -176,6 +177,7 @@ public class AVLTreeTest {
 			System.out.println(b);
 		}
 		
+	
 				
 		
 	}

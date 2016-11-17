@@ -14,22 +14,19 @@ public class BSTree <T extends Comparable<T>>{
 	 * 
 	 * @return verdadero cuando lo inserta, falso cuando no lo hace (ya existía u otra causa)
 	 */
-	public boolean add(T x) {
+	public BSTNode<T> add(T x) {
 		if (x != null) {
+			raiz = addRec(raiz, x);
+			return raiz;
 			
-			 
-				try {
-					raiz = addRec(raiz, x);
-				} catch (Exception e) {
-					// Esta excepcion salta en caso de que el nodo ya exista
-					return false;
-				}
-				return true;
+				
+				
 			
 			
 			
 		}
-		return false;
+		return null;
+		
 	}
 	
 	private BSTNode<T> addRec(BSTNode<T> r, T x){
@@ -44,7 +41,7 @@ public class BSTree <T extends Comparable<T>>{
 			r.setRight(addRec(r.getRight(),x));			
 		}		
 		else{
-			throw new InvalidParameterException("El nodo ya existe");			
+			return (BSTNode<T>) x;		
 		}
 		
 		return r;

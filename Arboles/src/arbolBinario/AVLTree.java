@@ -11,24 +11,24 @@ public class AVLTree<T extends Comparable<T>> extends BSTree<T> {
 	 * @see BSTree#add(java.lang.Comparable) Redefine inserción para
 	 * funcionalidad AVL
 	 */
-	public boolean add(T info) {
-		if (info != null)
-			try {
+	public AVLNode<T> add(T info) {
+		if (info != null){
+			
 				raiz = add((AVLNode<T>) raiz, info);
-				return true;
-			} catch (IllegalArgumentException e) {
-				return false;
-			}
+				return (AVLNode<T>) raiz;
+		}
+		return null;
+		
+			
 
-		return false;
-
+		
 	}
 
 	private AVLNode<T> add(AVLNode<T> theRoot, T info) {
 		if (theRoot == null)
 			return new AVLNode<T>(info);
 		if (info.compareTo(theRoot.getInfo()) == 0)
-			throw new IllegalArgumentException("the element already exist!");
+			return (AVLNode<T>) raiz;
 		if (info.compareTo(theRoot.getInfo()) < 0)
 			theRoot.setLeft(add(theRoot.getLeft(), info));
 		else
@@ -171,7 +171,10 @@ public class AVLTree<T extends Comparable<T>> extends BSTree<T> {
 		}
 		return updateBF(r);
 	}
-
+ 
+	public AVLNode<T> getRaiz(){
+		return (AVLNode<T>) raiz;
+	}
 }
 
 
